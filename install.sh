@@ -54,8 +54,8 @@ nnoremap <silent> [d <Plug>(coc-diagnostic-prev) " Ir al error anterior
 nnoremap <silent> ]d <Plug>(coc-diagnostic-next) " Ir al siguiente error
 
 " Autocompletado con Tab en coc.nvim
-inoremap <silent><expr> <Tab> pumvisible() ? "\<C-y>" : "\<Tab>"
-inoremap <silent><expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<Tab>"
+" inoremap <silent><expr> <Tab> pumvisible() ? "\<C-y>" : "\<Tab>"
+" inoremap <silent><expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<Tab>"
 
 " ===============================
 " Configuración de lualine
