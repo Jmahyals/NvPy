@@ -18,7 +18,7 @@ call plug#begin('~/.vim/plugged')
 
 " Plugins esenciales para Python
 Plug 'neoclide/coc.nvim', {'branch': 'release'}      " Autocompletado y LSP
-Plug 'gruvbox-community/gruvbox'                    " Tema visual
+Plug 'joshdick/onedark.vim'                          " Tema One Dark
 Plug 'hoob3rt/lualine.nvim'                         " Barra de estado
 Plug 'windwp/nvim-autopairs'                        " Cierre automático de (), {}, []
 
@@ -35,9 +35,8 @@ set cursorline                          " Resaltar línea actual
 set signcolumn=yes                      " Mostrar columna para diagnósticos
 set completeopt=menuone,noinsert,noselect  " Opciones de autocompletado
 
-" Tema gruvbox
-set background=dark
-colorscheme gruvbox
+" Tema One Dark
+colorscheme onedark
 
 " ===============================
 " Configuración de coc.nvim
@@ -54,8 +53,9 @@ nnoremap <silent> [d <Plug>(coc-diagnostic-prev) " Ir al error anterior
 nnoremap <silent> ]d <Plug>(coc-diagnostic-next) " Ir al siguiente error
 
 " Autocompletado con Tab en coc.nvim
-" inoremap <silent><expr> <Tab> pumvisible() ? "\<C-y>" : "\<Tab>"
-" inoremap <silent><expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<Tab>"
+" Corrección: Asegurar que Tab selecciona el elemento actual en la lista desplegable.
+inoremap <silent><expr> <Tab> pumvisible() ? "\<C-y>" : "\<Tab>"
+inoremap <silent><expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<Tab>"
 
 " ===============================
 " Configuración de lualine
@@ -63,7 +63,7 @@ nnoremap <silent> ]d <Plug>(coc-diagnostic-next) " Ir al siguiente error
 lua <<EOF
 require('lualine').setup({
   options = {
-    theme = 'gruvbox',
+    theme = 'onedark',  -- Cambiar a One Dark
     section_separators = {'', ''},
     component_separators = {'', ''},
   }
@@ -76,6 +76,7 @@ EOF
 lua <<EOF
 require('nvim-autopairs').setup({})
 EOF
+
 EOL
 
 echo "Instalación completada. Abre Neovim y ejecuta :PlugInstall para instalar los plugins."
